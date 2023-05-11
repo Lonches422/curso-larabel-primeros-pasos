@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\Dashboard\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\TestController;
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('post', PostController::class);
+
+Route::get('post', [PostController::class, 'index'])->name("post.index");
+Route::get('post/{post}', [PostController::class, 'show'])->name('post.show');
+Route::get('post/create', [PostController::class, 'create'])->name('juan');
+Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post/edit');
+//Route::delete('post/{post}', [PostController::class, 'delete'])->name("post.destroy");
+
+//Route::post('post', [PostController::class, 'store']);
+//Route::put('post/{post}', [PostController::class, 'update']);
