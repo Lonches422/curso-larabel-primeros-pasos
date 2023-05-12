@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("image")->nullable();//la imagen, esta tampoco se limita porque sabra Dios cuantas letras son para la base64 xDDDD
             $table->enum("posted", ['yes', 'not'])->nullable();//este no supe que era xD. Creo que es como el estatus
             $table->timestamps();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
         });
     }
 

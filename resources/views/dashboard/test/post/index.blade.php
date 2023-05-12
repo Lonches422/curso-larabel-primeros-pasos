@@ -4,7 +4,7 @@
     
     <!-- http://miprimerlaravel.test/post/create post.create -->
 
-    <a href="{{ route('juan') }}">Crear nuevo posteo</a>
+    <a href="{{ route('post/create') }}">Crear nuevo posteo</a>
     <table>
         <tr>
             <th>T&iacute;tulo</th>
